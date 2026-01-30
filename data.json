@@ -1,0 +1,87 @@
+{
+  "personal": {
+    "name": "Your Name",
+    "title": "Game Developer & Creative Coder",
+    "tagline": "Building interactive experiences that players love. Fourth-year student passionate about game development.",
+    "email": "your.email@example.com",
+    "about": [
+      "Hey there! I'm a senior student with a deep passion for game development. I love creating immersive experiences that engage players and tell compelling stories.",
+      "I enjoy working with various game engines and programming languages to bring creative gameplay mechanics to life. From prototyping to polishing, I'm driven by the challenge of making games that are both fun and memorable.",
+      "Currently focusing on indie game development and gameplay programming, I'm always learning new techniques and exploring innovative ways to enhance player experience."
+    ]
+  },
+  "skills": [
+    {
+      "icon": "🎮",
+      "name": "Unity",
+      "description": "2D/3D game development with C# scripting",
+      "progress": 90
+    },
+    {
+      "icon": "⚡",
+      "name": "Unreal Engine",
+      "description": "Blueprint visual scripting and C++ programming",
+      "progress": 85
+    },
+    {
+      "icon": "💻",
+      "name": "Programming",
+      "description": "C#, C++ for game logic and systems",
+      "progress": 88
+    },
+    {
+      "icon": "🎨",
+      "name": "Game Design",
+      "description": "Level design, balancing, and player experience",
+      "progress": 82
+    }
+  ],
+  "projects": [
+    {
+      "number": "01",
+      "type": "PROJECT 01",
+      "title": "Action Adventure Game",
+      "description": "A 3D action game featuring dynamic combat mechanics and challenging boss battles. Players explore dungeons and fight through waves of enemies with intuitive controls.",
+      "tags": ["Unity", "C#", "3D"],
+      "link": "#"
+    },
+    {
+      "number": "02",
+      "type": "PROJECT 02",
+      "title": "Puzzle Platformer",
+      "description": "A 2D puzzle game combining physics-based challenges with precision platforming. Features unique mechanics and creative level design.",
+      "tags": ["Unity", "2D", "Physics"],
+      "link": "#"
+    },
+    {
+      "number": "03",
+      "type": "PROJECT 03",
+      "title": "Multiplayer Shooter",
+      "description": "A real-time online FPS with smooth network synchronization. Focused on competitive gameplay and responsive combat mechanics.",
+      "tags": ["Unreal", "C++", "Multiplayer"],
+      "link": "#"
+    }
+  ],
+  "social": [
+    {
+      "name": "GitHub",
+      "label": "G",
+      "url": "https://github.com/yourusername"
+    },
+    {
+      "name": "LinkedIn",
+      "label": "L",
+      "url": "https://linkedin.com/in/yourusername"
+    },
+    {
+      "name": "Twitter",
+      "label": "T",
+      "url": "https://twitter.com/yourusername"
+    },
+    {
+      "name": "Portfolio",
+      "label": "P",
+      "url": "#"
+    }
+  ]
+}
