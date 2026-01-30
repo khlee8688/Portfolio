@@ -89,151 +89,155 @@
             overflow: hidden;
         }
 
-        /* Floating shapes animation */
-        .floating-shapes {
+        /* Pixel character */
+        .pixel-character {
             position: absolute;
+            bottom: 100px;
+            width: 40px;
+            height: 50px;
+            z-index: 2;
+            cursor: pointer;
+            image-rendering: pixelated;
+            transition: transform 0.1s;
+        }
+
+        .pixel-character:hover {
+            transform: scale(1.1);
+        }
+
+        /* Character body (8-bit style) */
+        .character-body {
+            position: relative;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
         }
 
-        .shape {
+        /* Character sprite */
+        .character-sprite {
+            width: 40px;
+            height: 50px;
+            background: 
+                /* Head */
+                linear-gradient(var(--blue) 0 10px, transparent 10px 50px),
+                /* Eyes */
+                radial-gradient(circle 2px at 12px 5px, var(--black) 100%, transparent),
+                radial-gradient(circle 2px at 28px 5px, var(--black) 100%, transparent),
+                /* Body */
+                linear-gradient(var(--blue) 0 30px, transparent 30px),
+                /* Legs */
+                linear-gradient(var(--blue-dark) 0 10px, transparent 10px);
+            background-position: 
+                0 0,
+                0 0,
+                0 0,
+                0 10px,
+                0 30px;
+            background-repeat: no-repeat;
+            background-size: 
+                40px 10px,
+                4px 4px,
+                4px 4px,
+                40px 20px,
+                40px 10px;
+        }
+
+        /* Simple pixel art character using box shadows */
+        .pixel-char {
             position: absolute;
-            opacity: 0.1;
-            animation: float-shape 20s infinite ease-in-out;
+            width: 4px;
+            height: 4px;
+            background: transparent;
+            box-shadow:
+                /* Head - row 1 */
+                8px 0 0 var(--blue), 12px 0 0 var(--blue), 16px 0 0 var(--blue), 20px 0 0 var(--blue),
+                /* Head - row 2 */
+                8px 4px 0 var(--blue), 12px 4px 0 #fff, 16px 4px 0 #fff, 20px 4px 0 var(--blue),
+                /* Head - row 3 */
+                8px 8px 0 var(--blue), 12px 8px 0 var(--black), 16px 8px 0 var(--black), 20px 8px 0 var(--blue),
+                /* Body - row 4 */
+                8px 12px 0 var(--blue-dark), 12px 12px 0 var(--blue), 16px 12px 0 var(--blue), 20px 12px 0 var(--blue-dark),
+                /* Body - row 5 */
+                12px 16px 0 var(--blue), 16px 16px 0 var(--blue),
+                /* Body - row 6 */
+                12px 20px 0 var(--blue), 16px 20px 0 var(--blue),
+                /* Legs - row 7 */
+                8px 24px 0 var(--blue-dark), 12px 24px 0 var(--blue-dark), 16px 24px 0 var(--blue-dark), 20px 24px 0 var(--blue-dark);
         }
 
-        .shape.square {
-            width: 80px;
-            height: 80px;
-            border: 3px solid var(--blue);
-            transform: rotate(45deg);
+        .pixel-char.jump {
+            animation: jump-animation 0.6s ease-out;
         }
 
-        .shape.circle {
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--blue);
-            border-radius: 50%;
+        @keyframes jump-animation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-60px); }
         }
 
-        .shape.triangle {
-            width: 0;
-            height: 0;
-            border-left: 40px solid transparent;
-            border-right: 40px solid transparent;
-            border-bottom: 70px solid var(--blue);
+        .pixel-char.walk {
+            animation: walk-cycle 0.4s steps(2) infinite;
         }
 
-        @keyframes float-shape {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-30px) rotate(90deg);
+        @keyframes walk-cycle {
+            0% {
+                box-shadow:
+                    8px 0 0 var(--blue), 12px 0 0 var(--blue), 16px 0 0 var(--blue), 20px 0 0 var(--blue),
+                    8px 4px 0 var(--blue), 12px 4px 0 #fff, 16px 4px 0 #fff, 20px 4px 0 var(--blue),
+                    8px 8px 0 var(--blue), 12px 8px 0 var(--black), 16px 8px 0 var(--black), 20px 8px 0 var(--blue),
+                    8px 12px 0 var(--blue-dark), 12px 12px 0 var(--blue), 16px 12px 0 var(--blue), 20px 12px 0 var(--blue-dark),
+                    12px 16px 0 var(--blue), 16px 16px 0 var(--blue),
+                    12px 20px 0 var(--blue), 16px 20px 0 var(--blue),
+                    8px 24px 0 var(--blue-dark), 12px 24px 0 var(--blue-dark), 16px 24px 0 var(--blue-dark), 20px 24px 0 var(--blue-dark);
             }
             50% {
-                transform: translateY(-15px) rotate(180deg);
+                box-shadow:
+                    8px 0 0 var(--blue), 12px 0 0 var(--blue), 16px 0 0 var(--blue), 20px 0 0 var(--blue),
+                    8px 4px 0 var(--blue), 12px 4px 0 #fff, 16px 4px 0 #fff, 20px 4px 0 var(--blue),
+                    8px 8px 0 var(--blue), 12px 8px 0 var(--black), 16px 8px 0 var(--black), 20px 8px 0 var(--blue),
+                    8px 12px 0 var(--blue-dark), 12px 12px 0 var(--blue), 16px 12px 0 var(--blue), 20px 12px 0 var(--blue-dark),
+                    12px 16px 0 var(--blue), 16px 16px 0 var(--blue),
+                    12px 20px 0 var(--blue), 16px 20px 0 var(--blue),
+                    4px 24px 0 var(--blue-dark), 8px 24px 0 var(--blue-dark), 20px 24px 0 var(--blue-dark), 24px 24px 0 var(--blue-dark);
             }
-            75% {
-                transform: translateY(-40px) rotate(270deg);
-            }
         }
 
-        .shape:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-            animation-duration: 15s;
-        }
-
-        .shape:nth-child(2) {
-            top: 60%;
-            left: 80%;
-            animation-delay: 2s;
-            animation-duration: 18s;
-        }
-
-        .shape:nth-child(3) {
-            top: 40%;
-            left: 85%;
-            animation-delay: 4s;
-            animation-duration: 20s;
-        }
-
-        .shape:nth-child(4) {
-            top: 70%;
-            left: 15%;
-            animation-delay: 1s;
-            animation-duration: 17s;
-        }
-
-        .shape:nth-child(5) {
-            top: 15%;
-            left: 75%;
-            animation-delay: 3s;
-            animation-duration: 16s;
-        }
-
-        .shape:nth-child(6) {
-            top: 80%;
-            left: 70%;
-            animation-delay: 5s;
-            animation-duration: 19s;
-        }
-
-        /* Pixel grid lines animation */
-        .grid-lines {
+        /* Floating platforms (pixel style) */
+        .pixel-platform {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            opacity: 0.05;
-        }
-
-        .grid-line {
-            position: absolute;
-            background: var(--blue);
-        }
-
-        .grid-line.horizontal {
-            width: 100%;
-            height: 2px;
-            animation: slide-horizontal 8s infinite linear;
-        }
-
-        .grid-line.vertical {
-            width: 2px;
-            height: 100%;
-            animation: slide-vertical 8s infinite linear;
-        }
-
-        @keyframes slide-horizontal {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        @keyframes slide-vertical {
-            0% {
-                transform: translateX(-100vw);
-            }
-            100% {
-                transform: translateX(100vw);
-            }
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gray) 0px,
+                var(--gray) 8px,
+                var(--black) 8px,
+                var(--black) 10px
+            );
+            z-index: 0;
+            opacity: 0.3;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+        }
+
+        /* Click instruction */
+        .click-instruction {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            color: var(--gray);
+            opacity: 0.7;
+            animation: fadeInOut 2s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
         }
 
         .hero-content h1 {
@@ -247,16 +251,46 @@
         .hero-content h1 span {
             color: var(--blue);
             display: inline-block;
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: glow 3s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
             from {
-                text-shadow: 0 0 5px var(--blue), 0 0 10px var(--blue);
+                text-shadow: 0 0 3px rgba(0, 102, 255, 0.3);
             }
             to {
-                text-shadow: 0 0 10px var(--blue), 0 0 20px var(--blue), 0 0 30px var(--blue);
+                text-shadow: 0 0 8px rgba(0, 102, 255, 0.5), 0 0 12px rgba(0, 102, 255, 0.3);
             }
+        }
+
+        /* Interactive canvas */
+        #interactive-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            cursor: crosshair;
+        }
+
+        /* Click instruction */
+        .click-instruction {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--gray);
+            opacity: 0.7;
+            animation: fadeInOut 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
         }
 
         /* Typing cursor effect */
@@ -470,6 +504,23 @@
             font-size: 64px;
             color: rgba(255, 255, 255, 0.2);
             font-weight: 800;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-image .project-number-overlay {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .project-content {
@@ -747,21 +798,13 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="floating-shapes">
-                <div class="shape square"></div>
-                <div class="shape circle"></div>
-                <div class="shape triangle"></div>
-                <div class="shape square"></div>
-                <div class="shape circle"></div>
-                <div class="shape triangle"></div>
+            <div class="pixel-platform" style="width: 150px; bottom: 90px; left: 10%;"></div>
+            <div class="pixel-platform" style="width: 200px; bottom: 90px; right: 15%;"></div>
+            
+            <div class="pixel-character" id="pixel-char">
+                <div class="pixel-char walk"></div>
             </div>
-            <div class="grid-lines">
-                <div class="grid-line horizontal" style="top: 20%;"></div>
-                <div class="grid-line horizontal" style="top: 50%; animation-delay: 2s;"></div>
-                <div class="grid-line horizontal" style="top: 80%; animation-delay: 4s;"></div>
-                <div class="grid-line vertical" style="left: 30%;"></div>
-                <div class="grid-line vertical" style="left: 60%; animation-delay: 3s;"></div>
-            </div>
+            
             <div class="container">
                 <div class="hero-content">
                     <h1 class="fade-in" id="hero-title"></h1>
@@ -769,6 +812,7 @@
                     <a href="#projects" class="cta-button fade-in-delay-2">View My Work</a>
                 </div>
             </div>
+            <div class="click-instruction">Click the character to make it jump! 🎮</div>
         </section>
 
         <section id="about">
@@ -878,8 +922,17 @@
                     `<span class="tag">${tag}</span>`
                 ).join('');
                 
+                // Image or gradient background
+                let imageHTML = '';
+                if (project.thumbnail) {
+                    imageHTML = `<img src="${project.thumbnail}" alt="${project.title}" onerror="this.style.display='none'">`;
+                }
+                
                 projectCard.innerHTML = `
-                    <div class="project-image">${project.number}</div>
+                    <div class="project-image">
+                        ${imageHTML}
+                        <div class="project-number-overlay">${project.number}</div>
+                    </div>
                     <div class="project-content">
                         <div class="project-number">${project.type}</div>
                         <h3>${project.title}</h3>
@@ -888,12 +941,11 @@
                     </div>
                 `;
                 
-                if (project.link && project.link !== '#') {
-                    projectCard.style.cursor = 'pointer';
-                    projectCard.addEventListener('click', () => {
-                        window.open(project.link, '_blank');
-                    });
-                }
+                // Click to go to detail page
+                projectCard.style.cursor = 'pointer';
+                projectCard.addEventListener('click', () => {
+                    window.location.href = `project-detail.html?id=${project.id}`;
+                });
                 
                 projectsGrid.appendChild(projectCard);
             });
@@ -1075,6 +1127,56 @@
                     }
                 });
             }
+
+            // Pixel character animation
+            const pixelChar = document.getElementById('pixel-char');
+            const charSprite = pixelChar.querySelector('.pixel-char');
+            let charX = 100; // Starting position
+            let isJumping = false;
+            let direction = 1; // 1 = right, -1 = left
+
+            // Set initial position
+            pixelChar.style.left = charX + 'px';
+
+            // Character walking animation
+            function moveCharacter() {
+                if (!isJumping) {
+                    charX += direction * 2;
+
+                    // Get window width
+                    const maxX = window.innerWidth - 60;
+
+                    // Bounce off edges
+                    if (charX >= maxX) {
+                        direction = -1;
+                        pixelChar.style.transform = 'scaleX(-1)';
+                    } else if (charX <= 20) {
+                        direction = 1;
+                        pixelChar.style.transform = 'scaleX(1)';
+                    }
+
+                    pixelChar.style.left = charX + 'px';
+                }
+            }
+
+            // Move character every frame
+            setInterval(moveCharacter, 50);
+
+            // Jump on click
+            pixelChar.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isJumping) {
+                    isJumping = true;
+                    charSprite.classList.remove('walk');
+                    charSprite.classList.add('jump');
+                    
+                    setTimeout(() => {
+                        isJumping = false;
+                        charSprite.classList.remove('jump');
+                        charSprite.classList.add('walk');
+                    }, 600);
+                }
+            });
         }
 
         // Load data when page loads

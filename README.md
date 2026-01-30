@@ -1,6 +1,6 @@
 # Game Developer Portfolio
 
-A clean, interactive portfolio website for game developers.
+A clean, interactive portfolio website for game developers with project detail pages.
 
 ## 🚀 Quick Start
 
@@ -15,8 +15,9 @@ A clean, interactive portfolio website for game developers.
 2. **파일 구조**
    ```
    portfolio/
-   ├── index.html
-   ├── data.json
+   ├── index.html           # 메인 페이지
+   ├── project-detail.html  # 프로젝트 상세 페이지
+   ├── data.json           # 모든 데이터
    └── README.md
    ```
 
@@ -52,19 +53,35 @@ A clean, interactive portfolio website for game developers.
 ]
 ```
 
-#### 프로젝트 추가
+#### 프로젝트 추가 (상세 페이지 포함)
 ```json
 "projects": [
   {
+    "id": "my-game",  // 고유 ID (URL에 사용됨)
     "number": "04",
     "type": "PROJECT 04",
     "title": "새 프로젝트 제목",
-    "description": "프로젝트 설명",
+    "description": "짧은 설명",
     "tags": ["Unity", "C#"],
-    "link": "https://github.com/yourproject"  // 클릭 시 이동할 링크
+    "detailedDescription": "프로젝트의 자세한 설명을 여기에 작성하세요.",
+    "features": [
+      "기능 1",
+      "기능 2",
+      "기능 3"
+    ],
+    "technologies": ["Unity 2022", "C#", "Photon"],
+    "duration": "3 months",
+    "role": "Lead Developer",
+    "github": "https://github.com/yourusername/project",
+    "demo": "https://yourgame.com",
+    "images": []
   }
 ]
 ```
+
+**주의:** 
+- `id`는 각 프로젝트마다 고유해야 합니다 (URL에 사용됨)
+- `github`와 `demo`는 실제 링크로 변경하거나 `"#"`으로 남겨두면 버튼이 표시되지 않습니다
 
 #### 소셜 링크 수정
 ```json
@@ -92,18 +109,25 @@ A clean, interactive portfolio website for game developers.
 
 ## ✨ 기능
 
+### 메인 페이지
 - ✅ 커스텀 인터랙티브 커서
 - ✅ 스크롤 프로그레스 바
 - ✅ 3D 프로젝트 카드 틸트 효과
 - ✅ 스킬 프로그레스 바 애니메이션
+- ✅ 2D 애니메이션 (떠다니는 도형, 그리드)
 - ✅ 부드러운 스크롤 애니메이션
-- ✅ 반응형 디자인 (모바일 지원)
-- ✅ JSON 기반 컨텐츠 관리
+
+### 프로젝트 상세 페이지
+- ✅ 프로젝트 개요
+- ✅ 주요 기능 표시
+- ✅ 사용 기술 나열
+- ✅ GitHub/Demo 링크
+- ✅ 반응형 디자인
 
 ## 🛠 커스터마이징
 
 ### 색상 변경
-`index.html`의 `:root` 섹션에서 색상 변경:
+`index.html`과 `project-detail.html`의 `:root` 섹션에서 색상 변경:
 ```css
 :root {
     --blue: #0066ff;  /* 원하는 색상으로 변경 */
@@ -120,6 +144,9 @@ A clean, interactive portfolio website for game developers.
 
 **Q: 프로젝트가 표시되지 않아요**
 A: 브라우저 개발자 도구 (F12) → Console 탭에서 에러 확인. data.json 파일 경로가 맞는지 확인하세요.
+
+**Q: 프로젝트 상세 페이지가 로딩되지 않아요**
+A: `id` 값이 올바른지 확인하세요. URL은 `project-detail.html?id=프로젝트아이디` 형식이어야 합니다.
 
 **Q: 로컬에서 작동하지 않아요**
 A: CORS 에러일 수 있습니다. 반드시 로컬 서버를 사용해야 합니다. (Python 서버 또는 Live Server)

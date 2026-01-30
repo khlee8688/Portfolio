@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+            --blue: #0066ff;
+            --blue-dark: #0052cc;
+            --blue-light: #e6f0ff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .back-button {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            color: var(--blue);
+        }
+
+        /* Project Header */
+        .project-header {
+            padding: 80px 0 60px;
+            background: var(--light-gray);
+        }
+
+        .project-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .project-header h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .tag {
+            background: var(--white);
+            color: var(--blue);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid var(--blue);
+        }
+
+        /* Project Content */
+        .project-content {
+            padding: 80px 0;
+        }
+
+        .content-section {
+            margin-bottom: 80px;
+        }
+
+        .content-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .feature-card {
+            background: var(--light-gray);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            color: var(--blue);
+            font-size: 24px;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .tech-item {
+            background: var(--light-gray);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Project Links */
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: var(--blue);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+        }
+
+        .project-link.secondary {
+            background: var(--white);
+            color: var(--blue);
+            border: 2px solid var(--blue);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--blue-light);
+        }
+
+        /* Image gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--blue);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .no-images {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: var(--white);
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Loading state */
+        .loading {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 40px;
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading">Loading...</div>
+
+    <div id="content" style="display: none;">
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="index.html" class="logo">DEV<span>.</span></a>
+                    <a href="index.html#projects" class="back-button">
+                        ← Back to Projects
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="project-header">
+            <div class="container">
+                <div class="project-number" id="project-type"></div>
+                <h1 id="project-title"></h1>
+                <p id="project-description" style="font-size: 20px; color: var(--gray); margin-top: 16px; max-width: 800px;"></p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Duration</span>
+                        <span class="meta-value" id="project-duration"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value" id="project-role"></span>
+                    </div>
+                </div>
+
+                <div class="project-tags" id="project-tags"></div>
+            </div>
+        </section>
+
+        <section class="project-content">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p id="detailed-description"></p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <div class="features-grid" id="features-grid"></div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Technologies Used</h2>
+                    <div class="technologies" id="technologies"></div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Links</h2>
+                    <div class="project-links" id="project-links"></div>
+                </div>
+
+                <div class="content-section" id="images-section">
+                    <h2>Screenshots</h2>
+                    <div class="image-gallery" id="image-gallery"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img src="" alt="Full size image" id="lightbox-img">
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>© 2026 Game Developer Portfolio</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Get project ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        async function loadProject() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                
+                const project = data.projects.find(p => p.id === projectId);
+                
+                if (!project) {
+                    document.getElementById('loading').textContent = 'Project not found';
+                    return;
+                }
+
+                populateProject(project);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } catch (error) {
+                console.error('Error loading project:', error);
+                document.getElementById('loading').textContent = 'Error loading project';
+            }
+        }
+
+        function populateProject(project) {
+            document.title = project.title + ' - Portfolio';
+            document.getElementById('project-type').textContent = project.type;
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-description').textContent = project.description;
+            document.getElementById('project-duration').textContent = project.duration;
+            document.getElementById('project-role').textContent = project.role;
+            document.getElementById('detailed-description').textContent = project.detailedDescription;
+
+            // Tags
+            const tagsContainer = document.getElementById('project-tags');
+            project.tags.forEach(tag => {
+                const tagEl = document.createElement('span');
+                tagEl.className = 'tag';
+                tagEl.textContent = tag;
+                tagsContainer.appendChild(tagEl);
+            });
+
+            // Features
+            const featuresGrid = document.getElementById('features-grid');
+            project.features.forEach((feature, index) => {
+                const featureCard = document.createElement('div');
+                featureCard.className = 'feature-card';
+                featureCard.innerHTML = `
+                    <h3>
+                        <span class="feature-icon">✓</span>
+                        ${feature}
+                    </h3>
+                `;
+                featuresGrid.appendChild(featureCard);
+            });
+
+            // Technologies
+            const techContainer = document.getElementById('technologies');
+            project.technologies.forEach(tech => {
+                const techEl = document.createElement('div');
+                techEl.className = 'tech-item';
+                techEl.textContent = tech;
+                techContainer.appendChild(techEl);
+            });
+
+            // Links
+            const linksContainer = document.getElementById('project-links');
+            
+            if (project.github && project.github !== '#') {
+                const githubLink = document.createElement('a');
+                githubLink.href = project.github;
+                githubLink.className = 'project-link';
+                githubLink.target = '_blank';
+                githubLink.innerHTML = '🔗 View on GitHub';
+                linksContainer.appendChild(githubLink);
+            }
+
+            if (project.demo && project.demo !== '#') {
+                const demoLink = document.createElement('a');
+                demoLink.href = project.demo;
+                demoLink.className = 'project-link secondary';
+                demoLink.target = '_blank';
+                demoLink.innerHTML = '🎮 Play Demo';
+                linksContainer.appendChild(demoLink);
+            }
+
+            // Images gallery
+            const galleryContainer = document.getElementById('image-gallery');
+            const imagesSection = document.getElementById('images-section');
+            
+            if (project.images && project.images.length > 0) {
+                project.images.forEach((imagePath, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `<img src="${imagePath}" alt="${project.title} screenshot ${index + 1}" onerror="this.parentElement.style.display='none'">`;
+                    
+                    galleryItem.addEventListener('click', () => {
+                        openLightbox(imagePath);
+                    });
+                    
+                    galleryContainer.appendChild(galleryItem);
+                });
+            } else {
+                galleryContainer.innerHTML = '<div class="no-images">No screenshots available yet.</div>';
+            }
+        }
+
+        // Lightbox functions
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox on click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        loadProject();
+    </script>
+</body>
+</html>

@@ -1,82 +1,166 @@
 {
   "personal": {
-    "name": "Your Name",
-    "title": "Game Developer & Creative Coder",
-    "tagline": "Building interactive experiences that players love. Fourth-year student passionate about game development.",
-    "email": "your.email@example.com",
+    "name": "Khlee8688",
+    "title": "Game Player & Developer",
+    "tagline": "Fourth-year game development student focusing on Unreal Engine and gameplay systems.",
+    "email": "hosanna62100@gmail.com",
     "about": [
-      "Hey there! I'm a senior student with a deep passion for game development. I love creating immersive experiences that engage players and tell compelling stories.",
-      "I enjoy working with various game engines and programming languages to bring creative gameplay mechanics to life. From prototyping to polishing, I'm driven by the challenge of making games that are both fun and memorable.",
-      "Currently focusing on indie game development and gameplay programming, I'm always learning new techniques and exploring innovative ways to enhance player experience."
+      "I am a fourth-year undergraduate student passionate about game development, with a strong focus on Unreal Engine and gameplay programming.",
+      "I enjoy designing and implementing interactive systems that combine narrative, mechanics, and player choice.",
+      "As a student still learning and growing, I actively experiment with different genres and system designs to build a solid foundation as a game developer."
     ]
   },
   "skills": [
     {
-      "icon": "🎮",
-      "name": "Unity",
-      "description": "2D/3D game development with C# scripting",
-      "progress": 90
+      "icon": "⚙️",
+      "name": "Unreal Engine",
+      "description": "Gameplay systems using C++ and Blueprint",
+      "progress": 70
     },
     {
-      "icon": "⚡",
-      "name": "Unreal Engine",
-      "description": "Blueprint visual scripting and C++ programming",
-      "progress": 85
+      "icon": "🎮",
+      "name": "Unity",
+      "description": "2D/3D and VR game development with C#",
+      "progress": 65
     },
     {
       "icon": "💻",
-      "name": "Programming",
-      "description": "C#, C++ for game logic and systems",
-      "progress": 88
+      "name": "Gameplay Programming",
+      "description": "Game logic, state systems, and interaction design",
+      "progress": 68
     },
     {
-      "icon": "🎨",
-      "name": "Game Design",
-      "description": "Level design, balancing, and player experience",
-      "progress": 82
+      "icon": "🧩",
+      "name": "Game Systems Design",
+      "description": "Puzzle systems, narrative flow, and player choice",
+      "progress": 60
     }
   ],
   "projects": [
     {
+      "id": "hybrid-puzzle-adventure",
       "number": "01",
       "type": "PROJECT 01",
-      "title": "Action Adventure Game",
-      "description": "A 3D action game featuring dynamic combat mechanics and challenging boss battles. Players explore dungeons and fight through waves of enemies with intuitive controls.",
-      "tags": ["Unity", "C#", "3D"],
-      "link": "#"
+      "title": "2D/3D Hybrid Puzzle Adventure",
+      "description": "A puzzle adventure game combining 2D and 3D gameplay with narrative-driven progression.",
+      "tags": ["Unreal Engine", "C++", "Blueprint", "2D/3D"],
+      "thumbnail": "images/project1-thumb.jpg",
+      "detailedDescription": "A hybrid puzzle adventure built with Unreal Engine, where 2D and 3D mechanics coexist within a single game flow.",
+      "features": [
+        "Hybrid 2D and 3D gameplay structure",
+        "Puzzle mechanics integrated with story progression",
+        "Choice-driven narrative flow",
+        "System-oriented gameplay architecture"
+      ],
+      "technologies": ["Unreal Engine", "Blueprint"],
+      "duration": "2024 Summer",
+      "role": "Lead Programmer, Director",
+      "github": "#",
+      "demo": "#",
+      "images": [
+        "images/project1-1.jpg",
+        "images/project1-2.jpg",
+        "images/project1-3.jpg"
+      ]
     },
     {
+      "id": "gyro-detective",
       "number": "02",
       "type": "PROJECT 02",
-      "title": "Puzzle Platformer",
-      "description": "A 2D puzzle game combining physics-based challenges with precision platforming. Features unique mechanics and creative level design.",
-      "tags": ["Unity", "2D", "Physics"],
-      "link": "#"
+      "title": "Gyro-Integrated Detective Game",
+      "description": "A detective game that uses smartphone gyroscope input for investigation.",
+      "tags": ["Unreal Engine", "Gyroscope", "Narrative"],
+      "thumbnail": "images/project2-thumb.jpg",
+      "detailedDescription": "A detective game utilizing gyroscope sensor data to control camera perspective. Players physically move their device to investigate environments and search for clues, increasing immersion.",
+      "features": [
+        "Gyroscope-based camera control",
+        "Evidence inspection through device movement",
+        "Interactive and immersive investigation flow"
+      ],
+      "technologies": ["Unreal Engine", "Mobile Sensors"],
+      "duration": "2025 Summer",
+      "role": "Lead Programmer",
+      "github": "#",
+      "demo": "#",
+      "images": [
+        "images/project2-1.jpg",
+        "images/project2-2.jpg"
+      ]
     },
     {
+      "id": "simulation-novel",
       "number": "03",
       "type": "PROJECT 03",
-      "title": "Multiplayer Shooter",
-      "description": "A real-time online FPS with smooth network synchronization. Focused on competitive gameplay and responsive combat mechanics.",
-      "tags": ["Unreal", "C++", "Multiplayer"],
-      "link": "#"
+      "title": "Simulation Novel (Danganronpa-style)",
+      "description": "A story-driven simulation novel inspired by Danganronpa.",
+      "tags": ["Unreal Engine", "Narrative", "Simulation", "WIP"],
+      "thumbnail": "images/project3-thumb.jpg",
+      "detailedDescription": "A narrative-focused simulation novel inspired by Danganronpa, featuring branching storylines and an evolving character emotion system. The project focuses on narrative structure and event-driven systems.",
+      "features": [
+        "Branching narrative based on player choices",
+        "Character emotion and event system",
+        "Story-centric gameplay design"
+      ],
+      "technologies": ["Unreal Engine", "Blueprint"],
+      "duration": "Ongoing",
+      "role": "Lead Programmer",
+      "github": "#",
+      "demo": "#",
+      "images": []
+    },
+    {
+      "id": "keyboard-survival",
+      "number": "04",
+      "type": "PROJECT 04",
+      "title": "Keyboard-Controlled 2D Side-Scroller Game",
+      "description": "A 2D side scroller game controlled entirely through keyboard text input.",
+      "tags": ["Unity", "2D", "C#", "Experimental UI"],
+      "thumbnail": "images/project4-thumb.jpg",
+      "detailedDescription": "A minimalist 2D side scroller where all player actions are executed through a single keyboard input field. The input-focused interface remains active throughout the entire game experience.",
+      "features": [
+        "Single input-field control system",
+        "Text-based action execution",
+        "Consistent input-driven interface design"
+      ],
+      "technologies": ["Unity", "C#"],
+      "duration": "2024-1",
+      "role": "Programmer",
+      "github": "#",
+      "demo": "#",
+      "images": [
+        "images/project4-1.jpg"
+      ]
+    },
+    {
+      "id": "vr-public-speaking",
+      "number": "05",
+      "type": "PROJECT 05",
+      "title": "VR Public Speaking Simulation",
+      "description": "A VR simulation designed to help users practice public speaking.",
+      "tags": ["Unity", "VR", "Simulation", "Interaction"],
+      "thumbnail": "images/project5-thumb.jpg",
+      "detailedDescription": "A VR-based public speaking simulation that recreates realistic presentation environments. NPCs actively interact with the player, requiring simultaneous presentation and audience awareness.",
+      "features": [
+        "Realistic presentation environments",
+        "NPC-driven interaction and attention control",
+        "Multi-tasking between speaking and observation"
+      ],
+      "technologies": ["Unity", "VR"],
+      "duration": "2024-2",
+      "role": "Programmer",
+      "github": "#",
+      "demo": "#",
+      "images": [
+        "images/project5-1.jpg",
+        "images/project5-2.jpg"
+      ]
     }
   ],
   "social": [
     {
       "name": "GitHub",
       "label": "G",
-      "url": "https://github.com/yourusername"
-    },
-    {
-      "name": "LinkedIn",
-      "label": "L",
-      "url": "https://linkedin.com/in/yourusername"
-    },
-    {
-      "name": "Twitter",
-      "label": "T",
-      "url": "https://twitter.com/yourusername"
+      "url": "#"
     },
     {
       "name": "Portfolio",
