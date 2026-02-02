@@ -63,6 +63,7 @@ A clean, interactive portfolio website for game developers with project detail p
     "title": "새 프로젝트 제목",
     "description": "짧은 설명",
     "tags": ["Unity", "C#"],
+    "thumbnail": "images/project4-thumb.jpg",
     "detailedDescription": "프로젝트의 자세한 설명을 여기에 작성하세요.",
     "features": [
       "기능 1",
@@ -70,14 +71,32 @@ A clean, interactive portfolio website for game developers with project detail p
       "기능 3"
     ],
     "technologies": ["Unity 2022", "C#", "Photon"],
+    "teamSize": "Solo Project",  // 또는 "3 people", "5 people"
+    "platform": ["PC", "Mobile", "VR"],  // 플랫폼 배열
     "duration": "3 months",
     "role": "Lead Developer",
+    "myContributions": [  // 내 기여도/담당 부분
+      "담당한 작업 1",
+      "담당한 작업 2",
+      "담당한 작업 3"
+    ],
     "github": "https://github.com/yourusername/project",
     "demo": "https://yourgame.com",
-    "images": []
+    "videoUrl": "https://www.youtube.com/watch?v=VIDEO_ID",  // 유튜브 영상
+    "images": [
+      "images/project4-1.jpg",
+      "images/project4-2.jpg"
+    ]
   }
 ]
 ```
+
+**새로 추가된 필드:**
+- `teamSize`: 팀 규모 (예: "Solo Project", "3 people", "Team of 5")
+- `platform`: 플랫폼 배열 (예: ["PC", "Android", "iOS", "VR"])
+- `myContributions`: 내가 담당한 작업 내용 배열
+- `videoUrl`: 유튜브 영상 URL (선택사항)
+- `thumbnail`: 메인 페이지 카드 썸네일 이미지
 
 **주의:** 
 - `id`는 각 프로젝트마다 고유해야 합니다 (URL에 사용됨)

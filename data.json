@@ -53,10 +53,19 @@
         "System-oriented gameplay architecture"
       ],
       "technologies": ["Unreal Engine", "Blueprint"],
+      "teamSize": "Solo Project",
+      "platform": ["PC"],
       "duration": "2024 Summer",
       "role": "Lead Programmer, Director",
+      "myContributions": [
+        "Designed and implemented the core gameplay systems bridging 2D and 3D mechanics",
+        "Developed puzzle interaction framework using Blueprint and C++",
+        "Created narrative event system for story progression",
+        "Managed overall project direction and game design decisions"
+      ],
       "github": "#",
       "demo": "#",
+      "videoUrl": "",
       "images": [
         "images/project1-1.jpg",
         "images/project1-2.jpg",
@@ -78,10 +87,18 @@
         "Interactive and immersive investigation flow"
       ],
       "technologies": ["Unreal Engine", "Mobile Sensors"],
+      "teamSize": "Solo Project",
+      "platform": ["Android", "iOS"],
       "duration": "2025 Summer",
       "role": "Lead Programmer",
+      "myContributions": [
+        "Implemented gyroscope sensor integration for camera control",
+        "Developed evidence collection and inspection system",
+        "Created immersive investigation mechanics optimized for mobile devices"
+      ],
       "github": "#",
       "demo": "#",
+      "videoUrl": "",
       "images": [
         "images/project2-1.jpg",
         "images/project2-2.jpg"
@@ -102,10 +119,19 @@
         "Story-centric gameplay design"
       ],
       "technologies": ["Unreal Engine", "Blueprint"],
+      "teamSize": "Solo Project",
+      "platform": ["PC"],
       "duration": "Ongoing",
       "role": "Lead Programmer",
+      "myContributions": [
+        "Designed and implemented branching narrative system",
+        "Developed character emotion state machine",
+        "Created event-driven dialogue and choice framework",
+        "Working on continuous improvements and feature additions"
+      ],
       "github": "#",
       "demo": "#",
+      "videoUrl": "",
       "images": []
     },
     {
@@ -123,10 +149,18 @@
         "Consistent input-driven interface design"
       ],
       "technologies": ["Unity", "C#"],
+      "teamSize": "Solo Project",
+      "platform": ["PC"],
       "duration": "2024-1",
       "role": "Programmer",
+      "myContributions": [
+        "Implemented unique text-based control system",
+        "Designed minimalist UI focusing on single input field",
+        "Developed action parser and execution system"
+      ],
       "github": "#",
       "demo": "#",
+      "videoUrl": "",
       "images": [
         "images/project4-1.jpg"
       ]
@@ -146,10 +180,18 @@
         "Multi-tasking between speaking and observation"
       ],
       "technologies": ["Unity", "VR"],
+      "teamSize": "3 people",
+      "platform": ["VR (Meta Quest)"],
       "duration": "2024-2",
       "role": "Programmer",
+      "myContributions": [
+        "Implemented NPC interaction and attention system",
+        "Developed VR presentation environment and controls",
+        "Created audience feedback and evaluation mechanics"
+      ],
       "github": "#",
       "demo": "#",
+      "videoUrl": "",
       "images": [
         "images/project5-1.jpg",
         "images/project5-2.jpg"

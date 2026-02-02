@@ -124,6 +124,66 @@
             color: var(--black);
         }
 
+        .platform-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            background: var(--blue-light);
+            color: var(--blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid var(--blue);
+        }
+
+        /* My Contributions */
+        .contributions-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .contributions-list li {
+            padding-left: 32px;
+            margin-bottom: 16px;
+            position: relative;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+
+        .contributions-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Video embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            margin-top: 32px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .project-tags {
             display: flex;
             gap: 12px;
@@ -405,6 +465,14 @@
                         <span class="meta-label">Role</span>
                         <span class="meta-value" id="project-role"></span>
                     </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team Size</span>
+                        <span class="meta-value" id="project-team"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Platform</span>
+                        <div class="platform-badges" id="project-platform"></div>
+                    </div>
                 </div>
 
                 <div class="project-tags" id="project-tags"></div>
@@ -416,6 +484,16 @@
                 <div class="content-section">
                     <h2>Overview</h2>
                     <p id="detailed-description"></p>
+                </div>
+
+                <div class="content-section" id="video-section" style="display: none;">
+                    <h2>Video</h2>
+                    <div class="video-container" id="video-container"></div>
+                </div>
+
+                <div class="content-section" id="contributions-section">
+                    <h2>My Contributions</h2>
+                    <ul class="contributions-list" id="contributions-list"></ul>
                 </div>
 
                 <div class="content-section">
@@ -487,7 +565,21 @@
             document.getElementById('project-description').textContent = project.description;
             document.getElementById('project-duration').textContent = project.duration;
             document.getElementById('project-role').textContent = project.role;
+            document.getElementById('project-team').textContent = project.teamSize || 'Not specified';
             document.getElementById('detailed-description').textContent = project.detailedDescription;
+
+            // Platform badges
+            const platformContainer = document.getElementById('project-platform');
+            if (project.platform && project.platform.length > 0) {
+                project.platform.forEach(platform => {
+                    const badge = document.createElement('span');
+                    badge.className = 'platform-badge';
+                    badge.textContent = platform;
+                    platformContainer.appendChild(badge);
+                });
+            } else {
+                platformContainer.innerHTML = '<span class="meta-value">Not specified</span>';
+            }
 
             // Tags
             const tagsContainer = document.getElementById('project-tags');
@@ -497,6 +589,41 @@
                 tagEl.textContent = tag;
                 tagsContainer.appendChild(tagEl);
             });
+
+            // Video
+            if (project.videoUrl && project.videoUrl.trim() !== '') {
+                const videoSection = document.getElementById('video-section');
+                const videoContainer = document.getElementById('video-container');
+                videoSection.style.display = 'block';
+                
+                // YouTube video ID 추출
+                let videoId = '';
+                if (project.videoUrl.includes('youtube.com/watch?v=')) {
+                    videoId = project.videoUrl.split('v=')[1].split('&')[0];
+                } else if (project.videoUrl.includes('youtu.be/')) {
+                    videoId = project.videoUrl.split('youtu.be/')[1].split('?')[0];
+                }
+                
+                if (videoId) {
+                    videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>`;
+                } else {
+                    videoContainer.innerHTML = `<iframe src="${project.videoUrl}" allowfullscreen></iframe>`;
+                }
+            }
+
+            // My Contributions
+            const contributionsList = document.getElementById('contributions-list');
+            const contributionsSection = document.getElementById('contributions-section');
+            
+            if (project.myContributions && project.myContributions.length > 0) {
+                project.myContributions.forEach(contribution => {
+                    const li = document.createElement('li');
+                    li.textContent = contribution;
+                    contributionsList.appendChild(li);
+                });
+            } else {
+                contributionsSection.style.display = 'none';
+            }
 
             // Features
             const featuresGrid = document.getElementById('features-grid');

@@ -723,11 +723,20 @@
             transition: transform 0.1s ease;
         }
 
-        .cursor.hover {
-            width: 40px;
-            height: 40px;
-            border-color: var(--blue);
-            background: rgba(0, 102, 255, 0.1);
+        /* 모바일에서 커서 숨기기 */
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+
+            a, button, .project-card, .skill-item {
+                cursor: pointer;
+            }
+
+            .cursor,
+            .cursor-dot {
+                display: none !important;
+            }
         }
 
         .scroll-progress {
@@ -748,6 +757,19 @@
 
             .hero-content p {
                 font-size: 18px;
+            }
+
+            /* 모바일에서 픽셀 캐릭터 숨기기 */
+            .pixel-character {
+                display: none;
+            }
+
+            .pixel-platform {
+                display: none;
+            }
+
+            .click-instruction {
+                display: none;
             }
 
             .about-grid {
